@@ -22,18 +22,14 @@ dependencies:
   bloc: ^9.0.0
   equatable: ^2.0.7
   uuid: ^4.5.1
-  path_provider: ^2.1.5
   pdf: ^3.11.2
-  permission_handler: ^11.3.1
-  share_plus: ^10.1.4
   printing: ^5.14.0
   flutter_gemini: ^3.0.0
-  image_picker: ^1.1.2
   dash_chat_2: ^0.0.21
   flutter_launcher_icons: ^0.14.3
 
 flutter_launcher_icons:
-  android: true
+  android: "launcher_icon"
   ios: true
   image_path: "assets/icon.png"
 

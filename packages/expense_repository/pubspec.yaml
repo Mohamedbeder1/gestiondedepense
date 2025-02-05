@@ -6,7 +6,6 @@ version: 0.0.1
 
 dependencies:
   cloud_firestore: ^5.6.2
-  firebase_auth: ^5.4.1
   flutter_lints: ^5.0.0
 
 environment:
