@@ -34,3 +34,30 @@ double calculateTotalExpenset(Map<String, double> categoryTotals) {
 
   return totalExpense;
 }
+
+Map<String, double> calculateMonthTotals(List<Expense> expenses) {
+  Map<String, double> monthTotals = {};
+
+  for (var expense in expenses) {
+    // Extract the month and year from the expense's date
+    String monthYear =
+        '${expense.date.year}-${expense.date.month.toString().padLeft(2, '0')}';
+
+    double amount = expense.amount;
+
+    // If the monthYear already exists in the map, add the amount, otherwise set it
+    if (monthTotals.containsKey(monthYear)) {
+      monthTotals[monthYear] = monthTotals[monthYear]! + amount;
+    } else {
+      monthTotals[monthYear] = amount;
+    }
+  }
+
+  return monthTotals;
+}
+
+
+//
+
+
+//

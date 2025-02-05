@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:expense_repository/expense_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gestiondedepance/screens/assistant/assistant_screen.dart';
 import 'package:gestiondedepance/utils/covert_color.dart';
 import 'package:gestiondedepance/utils/gn_pdf.dart';
 import 'package:gestiondedepance/utils/important_calcule.dart';
@@ -10,7 +11,6 @@ import 'package:intl/intl.dart';
 class MainScreen extends StatelessWidget {
   final List<Expense> expenses;
   const MainScreen({required this.expenses, super.key});
-
   @override
   Widget build(BuildContext context) {
     Map<String, double> categoryTotals = calculateCategoryTotals(expenses);
@@ -53,14 +53,6 @@ class MainScreen extends StatelessWidget {
                         Text(
                           "Bienvenue",
                           style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
-                            color: Theme.of(context).colorScheme.outline,
-                          ),
-                        ),
-                        Text(
-                          "Beder",
-                          style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Theme.of(context).colorScheme.onSurface,
@@ -71,8 +63,11 @@ class MainScreen extends StatelessWidget {
                   ],
                 ),
                 IconButton(
-                  onPressed: () {},
-                  icon: Icon(CupertinoIcons.settings),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ChatScreen()));
+                  },
+                  icon: Icon(CupertinoIcons.question_circle),
                 )
               ],
             ),

@@ -114,8 +114,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Icon(CupertinoIcons.add)),
           ),
-          body:
-              index == 0 ? MainScreen(expenses: state.expenses) : StatScreen(),
+          body: index == 0
+              ? MainScreen(expenses: state.expenses)
+              : StatScreen(expenses: state.expenses),
         );
       } else {
         return Scaffold(

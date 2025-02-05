@@ -1,11 +1,21 @@
+import 'package:expense_repository/expense_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:gestiondedepance/screens/stats/chart.dart';
+import 'package:gestiondedepance/utils/important_calcule.dart';
+
+class PricePoint {
+  final double x;
+  final double y;
+  PricePoint(this.x, this.y);
+}
 
 class StatScreen extends StatelessWidget {
-  const StatScreen({super.key});
+  final List<Expense> expenses;
+  const StatScreen({required this.expenses, super.key});
 
   @override
   Widget build(BuildContext context) {
+    Map<String, double> monthTotals = calculateMonthTotals(expenses);
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -28,7 +38,7 @@ class StatScreen extends StatelessWidget {
             SizedBox(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.width,
-              child: MyChart(),
+              child: LineChartWidget(monthTotals),
             )
           ],
         ),
